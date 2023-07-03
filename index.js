@@ -29,7 +29,7 @@ async function invokeAction({ action, id, name, email, phone }) {
       const gottenContact = await getContactById(id);
       if (!gottenContact) {
         console.log("No such contact in the list");
-        break;
+        return null;
       }
       console.log(gottenContact);
       break;
@@ -46,7 +46,7 @@ async function invokeAction({ action, id, name, email, phone }) {
 
       if (!removedContact) {
         console.log("No such contact in list");
-        break;
+        return null;
       }
       const contactsAfterRemove = await listContacts();
       console.log("Deleted contact: ", removedContact);
